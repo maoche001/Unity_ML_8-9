@@ -35,11 +35,11 @@ public class GunAgent : Agent
 
 
         
-        Vector3 posRobot = new Vector3(Random.Range(-5, 5), 5,-11);
+        Vector3 posRobot = new Vector3(0, 5,-11);
         transform.position = posRobot;
         Vector3 posGun = new Vector3(posRobot.x, 5.45f, -9.675f);
         rigGun.position = posGun;
-        Vector3 posEnemy = new Vector3(Random.Range(-5, 5), 5, 0);
+        Vector3 posEnemy = new Vector3(Random.Range(-5, 5), 5, Random.Range(0, 10));
         rigEnemy.position = posEnemy;
         enemy.complete = false;
     }
@@ -63,7 +63,7 @@ public class GunAgent : Agent
             SetReward(1);
             EndEpisode();
         }
-        if (rigGun.position.z > 4|| rigGun.position.z <-10)
+        if (rigGun.position.z > 15|| rigGun.position.z <-10|| rigGun.position.x > 7|| rigGun.position.x < -7)
         {
             SetReward(-1);
             EndEpisode();
